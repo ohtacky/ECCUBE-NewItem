@@ -1,0 +1,40 @@
+{#
+ This file is part of EC-CUBE
+
+ Copyright(c) 2000-2015 LOCKON CO.,LTD. All Rights Reserved.
+ http://www.lockon.co.jp/
+
+ For the full copyright and license information, please view the LICENSE
+ file that was distributed with this source code.
+#}
+
+
+<div class="item_gallery">
+    <h4>新商品</h4>
+    <ul class="row">
+      {% for newItem in newItemList | slice(0,8) %}
+        <div class="col-sm-3 col-xs-6">
+            <div class="pickup_item">
+                <a href="{{ url('product_detail', {'id': newItem.id}) }}">
+                    <div class="item_photo"><img src="{{ app.config.image_save_urlpath }}/{{ newItem.main_list_image|no_image_product }}"></div>
+                    <dl>
+                      <dt class="item_name">{{newItem.name}}</dt>
+                      <dd class="item_price">
+                      {% if newItem.hasProductClass -%}
+                          {% if newItem.getPrice01Min == newItem.getPrice01Max %}
+                          <p class="normal_price"><span class="price01_default">{{ newItem.getPrice01IncTaxMin }}</span><span class="small">円</span></p>
+                          {% elseif newItem.getPrice01Min is not null and newItem.getPrice01Max is not null %}
+                          <p class="normal_price"><span class="price01_default">{{ newItem.getPrice01IncTaxMin }}</span> ～ <span class="price01_default">{{ newItem.getPrice01IncTaxMax }}</span><span class="small">円</span></p>
+                          {% endif %}
+                      {% else -%}
+                          {% if newItem.getPrice01Max is not null %}
+                          <p class="normal_price"><span class="price01_default">{{ newItem.getPrice01IncTaxMin }}</span><span class="small">円</span></p>
+                          {% endif %}
+                      {% endif -%}
+                    </dl>
+                </a>
+            </div>
+          </div>
+      {% endfor %}
+    </ul>
+</div>

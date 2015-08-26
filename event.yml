@@ -1,0 +1,6 @@
+eccube.event.render.index.before:
+    - [newItem, NORMAL]
+eccube.event.render.homepage.before:
+    - [newItem, NORMAL]
+eccube.event.render.top.before:
+    - [newItem, NORMAL]

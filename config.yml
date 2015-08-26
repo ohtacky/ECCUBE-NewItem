@@ -1,0 +1,4 @@
+name: 新着商品
+code: NewItem
+version: 0.0.1
+event: Event
