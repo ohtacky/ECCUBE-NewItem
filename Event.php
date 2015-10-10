@@ -46,7 +46,9 @@ class Event
             $response = $event->getResponse();
 
             $html = $response->getContent();
-            $crawler = new Crawler($html);
+
+            $crawler = new Crawler();
+            $crawler->addHtmlContent($html, 'ja');
 
             $oldElement = $crawler
                 ->filter('#item_list');
