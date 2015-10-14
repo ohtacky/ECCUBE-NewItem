@@ -2,6 +2,8 @@
 
 ECCUBE3のトップページに新商品を追加します。
 
+対応ver.3.0.3
+
 ![サンプル画像](https://github.com/ohtacky/ECCUBE-NewItem/raw/image/1.png)
 
 ### How to install
